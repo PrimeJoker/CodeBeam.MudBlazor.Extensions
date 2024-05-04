@@ -305,7 +305,8 @@ namespace MudExtensions
         {
             var config = new CsvHelper.Configuration.CsvConfiguration(CultureInfo.InvariantCulture)
             {
-                PrepareHeaderForMatch = (header) => header.Header
+                PrepareHeaderForMatch = (header) => header.Header,
+                Delimiter = Delimter
             };
             UpdateHeaderLineWithMatchedFields();
             if(!_includeUnmappedData) RemoveUnmappedData();
