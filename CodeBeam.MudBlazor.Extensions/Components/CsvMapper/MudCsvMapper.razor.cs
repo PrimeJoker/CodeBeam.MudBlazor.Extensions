@@ -191,7 +191,7 @@ namespace MudExtensions
         /// 
         /// </summary>
         [Parameter]
-        public string Delimter { get; set; } = ",";
+        public string Delimiter { get; set; } = ",";
 
         [Inject] private IDialogService? _dialogService { get; set; }
         [Inject] private NavigationManager? _navigationManager { get; set; }
@@ -265,7 +265,7 @@ namespace MudExtensions
             using var reader = new StreamReader(new MemoryStream(FileContentByte ?? new byte[0]), Encoding.Default);
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
-                Delimiter = Delimter,
+                Delimiter = Delimiter,
                 IgnoreBlankLines = true,
                 HasHeaderRecord = true
             };
@@ -306,7 +306,7 @@ namespace MudExtensions
             var config = new CsvHelper.Configuration.CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 PrepareHeaderForMatch = (header) => header.Header,
-                Delimiter = Delimter
+                Delimiter = Delimiter
             };
             UpdateHeaderLineWithMatchedFields();
             if(!_includeUnmappedData) RemoveUnmappedData();
